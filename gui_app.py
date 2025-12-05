@@ -136,9 +136,27 @@ def create_pdf_report(results, highest, lowest, avg, num_docs, num_comparisons):
 # -----------------------------
 # Streamlit GUI
 # -----------------------------
+
 st.set_page_config(page_title="Document Similarity Checker", layout="wide")
 
-st.title("📄 Document Similarity Checker")
+# -----------------------------
+# PROJECT BRANDING HEADER
+# -----------------------------
+st.markdown(
+    """
+    <div style="text-align:center; padding: 12px; border-radius: 10px;
+                background-color:#f0f2f6; border: 1px solid #ccc;">
+        <h1 style="margin-bottom:5px;">📄 Document Similarity Checker</h1>
+        <h3 style="color:#333; margin:0;">By <b>Shailesh Paul</b></h3>
+        <h4 style="color:#666; margin-top:5px;">B.Tech – AIML</h4>
+    </div>
+    <br>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
 
 mode = st.radio(
     "Select comparison mode:",
@@ -258,3 +276,4 @@ if st.button("Run Similarity Analysis"):
                 with c2:
                     st.write(f"### {doc2}")
                     st.text_area("Text - Document 2", name_to_text[doc2], height=350)
+
